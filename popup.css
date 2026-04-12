@@ -1,0 +1,57 @@
+body {
+    width: 420px;
+    font-family: Inter, Arial, sans-serif;
+    background: #f5f7fb;
+    padding: 12px;
+    margin: 0;
+}
+
+.gif-item {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border: #222 solid 1px;
+}
+
+.gif-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.gif-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.gif-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    line-height: 1.4;
+}
+
+a {
+    display: block;
+    font-size: 12px;
+    color: #2563eb;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+a:hover {
+    text-decoration: underline;
+}
