@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Instagram GIF Collector — Demo Preview</title>
+    <link rel="stylesheet" href="popup.css">
+    <style>
+        body {
+            width: 480px;
+            margin: 0 auto;
+        }
+        .demo-banner {
+            background: #2563eb;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 12px 12px 0 0;
+            font-size: 13px;
+            text-align: center;
+        }
+        .demo-banner p { margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        <p><strong>Extension Popup Preview</strong> — sample GIFs shown below</p>
+    </div>
+    <h2>GIFS Found</h2>
+    <div id="gallery"></div>
+
+    <script>
+        // Mock chrome.storage so popup.js runs in a plain browser
+        const mockImages = [
+            {
+                src: "https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif",
+                giphyPage: "https://giphy.com/gifs/3oEjI6SIIHBdRxXI40"
+            },
+            {
+                src: "https://media3.giphy.com/media/l0HlNQ03J5JxX9qeI/200.gif",
+                giphyPage: "https://giphy.com/gifs/l0HlNQ03J5JxX9qeI"
+            },
+            {
+                src: "https://media3.giphy.com/media/26u4lOMQgB0dV7W2A/200.gif",
+                giphyPage: "https://giphy.com/gifs/26u4lOMQgB0dV7W2A"
+            }
+        ];
+
+        window.chrome = {
+            storage: {
+                local: {
+                    get: (key, cb) => {
+                        const data = { pageImages: mockImages };
+                        cb(data);
+                    },
+                    set: () => {}
+                },
+                onChanged: {
+                    addListener: () => {}
+                }
+            }
+        };
+    </script>
+    <script src="popup.js"></script>
+</body>
+</html>
